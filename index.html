@@ -289,7 +289,7 @@ const W=D.W,c=W.cur,p=W.prev;
 const corrected=c.pos_profit+c.patco_loss;
 $('#ov-head').innerHTML=`The shop sold <b>KES ${K(c.sales)}</b> in 5 trading days, ${Math.abs(Math.round(pct(c.sales,p.sales)))}% less than the week before, which had 7. Per day open, sales rose to <b>KES ${K(c.sales/c.open_days)}</b>. The POS shows a small loss, but almost all of it is one item (PATCO) priced per kg and sold per pair.`;
 const kp=[
- {l:'Sales',v:K(c.sales),u:'KES',d:dl(c.sales,p.sales),t:`Down from KES ${K(p.sales)}. No sales were recorded on Thu 8 and Fri 9 Oct. Was the shop closed?`},
+ {l:'Weekly Sales',v:K(c.sales),u:'KES',d:dl(c.sales,p.sales),t:`Down from KES ${K(p.sales)}. No sales were recorded on Thu 8 and Fri 9 Oct. Was the shop closed?`},
  {l:'Sales per open day',v:K(c.sales/c.open_days),u:'KES',d:dl(c.sales/c.open_days,p.sales/p.open_days),t:`${c.open_days} days open vs ${p.open_days}. On the days you trade, the shop is doing better.`},
  {l:'Receipts · average basket',v:c.receipts,u:'· KES '+K(c.basket),d:dl(c.receipts,p.receipts),t:`${p.receipts} receipts at KES ${K(p.basket)} the week before. Fewer days, but almost the same number of customers.`},
  {l:'Gross profit (POS)',v:K(c.pos_profit),u:'KES',d:'<span class="d warn">check</span>',f:1,t:`PATCO sold at KES 5 against a KES 270 pack cost took KES ${K(c.patco_loss)} off. Without it the week earned about KES ${K(corrected)} (${Math.round(corrected/c.sales*100)}%).`},
